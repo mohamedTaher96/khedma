@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class offer extends Model
     protected $with =['worker'];
     public function worker()
     {
-        return $this->belongsTo('App\worker');
+        return $this->belongsTo('App\models\worker');
     }
 
 

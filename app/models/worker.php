@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,12 +11,14 @@ class worker extends Model
         'name',
         'email',
         'number',
-        'from',
-        'to',
         'password',
         'directions',
         'image',
-        'about'
+        'about',
+        'city',
+        'area',
+        'adress',
+        'api_token'
     ];
 
 }

@@ -13,22 +13,20 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1"> رقم الهاتف </label>
-                        <input type="number" class="form-control" name="number" placeholder=" ">
+                        <input type="number" class="form-control" name="number" value="{{$appInfo->number}}"  placeholder=" ">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">  الواتس</label>
-                        <input type="number" class="form-control" name="watsapp" placeholder=" ">
-                    </div>
+
                     <div class="form-group">
                         <label for="exampleInputFile"> البريد الالكتروني  </label>
-                        <input type="email" class="form-control"  name="email">
+                        <input type="email" class="form-control" value="{{$appInfo->email}}"  name="email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile"> روابط السوشيال ميديا  </label>
+                        @foreach ($links as $link)
                         <div>
-                            
-                            <input type="email" class="form-control"  name="email">
+                                <input type="text" class="form-control"  name="email" value="{{$link->link}}">
                         </div>
+                        @endforeach
                     </div>
                 </div><!-- /.box-body -->
 

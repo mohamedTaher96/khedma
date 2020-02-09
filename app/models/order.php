@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,7 @@ class order extends Model
         'service_image',
         'city',
         'area',
+        'help_image',
         'location',
         'info',
         'order_number',
@@ -20,7 +21,7 @@ class order extends Model
 
     public function offers()
     {
-        return $this->hasMany('App\offer');
+        return $this->hasMany('App\models\offer');
     }
 
 }

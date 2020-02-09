@@ -13,36 +13,56 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::get('/login', 'apiController@login');
-Route::post('/submit', 'apiController@submit');
-Route::post('/updateUser', 'apiController@updateUser');
-Route::get('/forget_password', 'apiController@forget_Password');
-Route::post('/reset_password', 'apiController@reset_password');
-Route::post('/change_password', 'apiController@change_password');
 
-Route::get('/services', 'apiController@services');
-Route::get('/subServices', 'apiController@subServices');
-Route::post('/order', 'apiController@order');
-Route::get('/userOrders', 'apiController@userOrders');
-Route::get('/orderInfo', 'apiController@orderInfo');
-Route::get('/perviousOrders', 'apiController@perviousOrders');
-Route::get('/perviousOrderInfo', 'apiController@perviousOrderInfo');
+//user login_controller
+Route::get('/login', 'api\user\loginController@login')->middleware('localization');
+Route::get('/phoneVerification', 'api\user\loginController@phoneVerification')->middleware('localization');
+Route::post('/register', 'api\user\loginController@register')->middleware('localization');
+Route::post('/updateUser', 'api\user\loginController@updateUser')->middleware('localization');
+Route::get('/forget_password', 'api\user\loginController@forget_Password')->middleware('localization');
+Route::put('/reset_password', 'api\user\loginController@reset_password')->middleware('localization');
 
 
 
-Route::get('/offers', 'apiController@offers');
-Route::post('/offerAccept', 'apiController@offerAccept');
-Route::get('/worker', 'apiController@offerAccept');
-Route::get('/workerInfo', 'apiController@workerInfo');
-Route::get('/workerComment', 'apiController@workerComment');
+//order_controller
+Route::get('/services', 'api\user\orderController@services');
+Route::get('/subServices', 'api\user\orderController@subServices');
+Route::post('/order', 'api\user\orderController@order');
+Route::get('/userOrders', 'api\user\orderController@userOrders');
+Route::get('/orderInfo', 'api\user\orderController@orderInfo');
+Route::get('/perviousOrders', 'api\user\orderController@perviousOrders');
+Route::get('/perviousOrderInfo', 'api\user\orderController@perviousOrderInfo');
+
+
+//odder_controller
+Route::get('/offers', 'api\user\offerController@offers');
+Route::post('/offerAccept', 'api\user\offerController@offerAccept');
+
+//worker_controller
+Route::get('/worker', 'api\user\workerController@offerAccept');
+Route::get('/workerInfo', 'api\user\workerController@workerInfo');
+Route::get('/workerComment', 'api\user\workerController@workerComment');
+
+//user_controller
+Route::get('/userInfo', 'api\user\userController@userInfo');
+Route::put('/updateUserInfo', 'api\user\userController@updateUserInfo');
+Route::put('/change_password', 'api\user\userController@change_password');
+
+
+//app_controller
+Route::get('/contact', 'api\user\appController@contact');
+Route::get('/about', 'api\user\appController@about');
+Route::get('/policy', 'api\user\appController@policy');
+Route::post('/message', 'api\user\appController@message');
 
 
 
 
 
-
-
-
+//worker login controller
+Route::get('/worker/login', 'api\worker\loginController@login')->middleware('localization');
+Route::get('/worker/phoneVerification', 'api\worker\loginController@phoneVerification')->middleware('localization');
+Route::post('/worker/register', 'api\worker\loginController@register')->middleware('localization');
+Route::post('/updateUser', 'api\user\loginController@updateUser')->middleware('localization');
+Route::get('/worker/forget_password', 'api\worker\loginController@forget_Password')->middleware('localization');
+Route::put('/worker/reset_password', 'api\worker\loginController@reset_password')->middleware('localization');
